@@ -49,7 +49,7 @@ const signup = async (req, res) => {
         res.status(201).json({
             success: true,
             message: 'User created successfully',
-            data: user
+            user: user
         });
 
     } catch (error) {
@@ -90,7 +90,7 @@ const login = async (req, res) => {
         res.status(200).json({ 
             success: true,
             message: 'Logged in successfully',
-            data: user
+            user: user
         });
     } catch (error) {
         res.status(500).json({
@@ -122,7 +122,8 @@ const verifyEmail = async (req, res) => {
 
         res.status(200).json({
             success: true,
-            message: 'Email verified successfully'
+            message: 'Email verified successfully',
+            user: user
         });
     } catch (error) {
         res.status(500).json({
@@ -214,7 +215,7 @@ const checkAuth = (req, res) => {
         res.status(200).json({
             success: true,
             message: 'User authenticated successfully',
-            data: user
+            user: user
         });
     } catch (error) {
         res.status(500).json({
