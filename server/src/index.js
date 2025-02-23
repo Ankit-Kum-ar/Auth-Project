@@ -2,8 +2,11 @@ const express = require('express');
 const dbConnection = require('./config/dbConnection');
 const authRouter = require('./routes/authRoutes');
 require('dotenv').config();
+const cookieParser = require('cookie-parser');
+
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 
 app.get('/', (req, res) => {
     res.send('Hello World from Express');
