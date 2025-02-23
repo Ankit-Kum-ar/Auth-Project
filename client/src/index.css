@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* These are used to remove the scrollbar of the overflow-x-scroll */
+.hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    overflow: hidden;  /* Fallback for unsupported browsers */
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, and Opera */
+  }
+
+/* These are used to remove the scrollbar of the all pages */
+  html {
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+  }
+  
+  body::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+  
