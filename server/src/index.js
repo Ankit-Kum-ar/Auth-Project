@@ -11,7 +11,7 @@ app.use(cookieParser());
 
 // CORS
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: process.env.CLIENT_URL || 'https://auth-project-mwf2.onrender.com',
     credentials: true
 }));
 

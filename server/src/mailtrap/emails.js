@@ -1,5 +1,5 @@
-const { mailtrapClient, sender } = require("../config/mailTrap");
-const { VERIFICATION_EMAIL_TEMPLATE, PASSWORD_RESET_REQUEST_TEMPLATE, PASSWORD_RESET_SUCCESS_TEMPLATE } = require("./emailTemplates");
+const { mailtrapClient, sender } = require("../config/mailTrap.js");
+const { VERIFICATION_EMAIL_TEMPLATE, PASSWORD_RESET_REQUEST_TEMPLATE, PASSWORD_RESET_SUCCESS_TEMPLATE } = require("./emailTemplates.js");
 
 const sendVerificationEmail = async (email, verificationToken) => {
     const recipient = [{ email }];
