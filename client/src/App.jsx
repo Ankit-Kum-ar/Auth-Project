@@ -9,6 +9,8 @@ import { useEffect } from "react"
 import { checkAuth } from "./redux/slices/authSlice"
 import Dashboard from "./pages/Dashboard"
 import LoadingSpinner from "./components/LoadingSpinner"
+import ForgotPassword from "./pages/ForgotPassword"
+import ResetPassword from "./pages/ResetPassword"
 
 // Redirect unauthenticated user to login page
 const ProtectedRoute = ({ children }) => {
@@ -39,7 +41,7 @@ const RedirectAuthenticatedUser = ({ children }) => {
 
 function App() {
   const dispatch = useDispatch();
-  const {isCheckingAuth, isAuthenticated, user } = useSelector((store) => store.auth);
+  const {isCheckingAuth } = useSelector((store) => store.auth);
 
   useEffect(() => {
     dispatch(checkAuth());
@@ -78,13 +80,22 @@ function App() {
           </RedirectAuthenticatedUser>
           } 
         />
+        <Route path="/verify-email" element={<EmailVerification />} />
         <Route 
-          path="/verify-email" 
+          path="/forgot-password" 
           element={
-          <RedirectAuthenticatedUser>
-            <EmailVerification />
-          </RedirectAuthenticatedUser>
-          } 
+            <RedirectAuthenticatedUser>
+              <ForgotPassword />
+            </RedirectAuthenticatedUser>
+          }
+        />
+        <Route 
+          path="/reset-password/:token"
+          element={
+            <RedirectAuthenticatedUser>
+              <ResetPassword />
+            </RedirectAuthenticatedUser>
+          }
         />
       </Routes>
       <Toaster />
