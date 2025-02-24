@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-const API_URL = 'http://localhost:5000/auth'
+const API_URL = 'https://auth-project-backend-ic3g.onrender.com/auth'
 
 axios.defaults.withCredentials = true
 
